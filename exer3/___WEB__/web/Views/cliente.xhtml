@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>
+            <f:view>
+                <h:form>
+                    <label>Nome</label>
+                    <h:inputText value="#{cliente.nome}" />
+                    <br/>
+                    <label>Telefone</label>
+                    <h:inputText value="#{cliente.tel}" ></h:inputText>
+                    <br/>
+                    <label>Celular</label>
+                    <h:inputText value="#{cliente.cel}" ></h:inputText>
+                    <br/>
+                    <label>Email</label>
+                    <h:inputText value="#{cliente.email}" ></h:inputText>
+                    <br/>
+                    <label>CPF</label>
+                    <h:inputText value="#{cliente.cpf}" ></h:inputText>
+                    <br/>
+                    <label>CNPJ</label>
+                    <h:inputText value="#{cliente.cnpj}" ></h:inputText>
+                </h:form>
+            </f:view>
+        </div>
+    </body>
+
+    <script type="javascript">
+        function somenteNumeros(num) {
+            var er = /[^0-9.]/;
+            er.lastIndex = 0;
+            var campo = num;
+             if (er.test(campo.value)) {
+                campo.value = "";
+            }
+        }
+    </script>
+</html>
