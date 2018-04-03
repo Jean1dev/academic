@@ -5,6 +5,7 @@
  */
 package models;
 
+import java.util.List;
 import java.util.Objects;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -22,7 +23,16 @@ public class ProdutoModel {
     private double preco;
     private int estoque;
     private String categoria;
+    private List<ProdutoModel> listaProdutos;
 
+    public List<ProdutoModel> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    public void setListaProdutos(List<ProdutoModel> listaProdutos) {
+        this.listaProdutos = listaProdutos;
+    }
+    
     public ProdutoModel() {
     }
 
