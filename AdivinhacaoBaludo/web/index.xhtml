@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Jogo da adivinhacao</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="style/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+        <link href="style/css/style.css" rel="stylesheet"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> 
+        <script type="text/javascript" src="style/js/bootstrap.min.js"></script>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                        <li role="presentation" class="active"><a href="#">Iniciar</a></li>
+                        <li role="presentation"><a href="">Reinciar</a></li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted">Jogo da adivinhacao</h3>
+            </div>
+
+            <div class="jumbotron">
+                <h2>Tentativas #{gameController.chances}</h2>
+            </div>
+
+            <div class="row marketing">
+                <div class="col-lg-6">
+                    <h4>Regras</h4>
+                    <p>Ao entrar no jogo o jogador tem direito a 10 tentativas. A cada tentativa incorreta o número de chances é </p>
+
+                    <p>Quando o jogador chega na décima tentativa, caso o número não seja acertado o número oculto aparece e o jogador tem a possibilidade de reiniciar o jogo.</p>
+
+                    <p>A qualquer momento o jogador pode reiniciar o jogo ou revelar o número.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h4>#{gameController.cAviso}</h4>
+                <h4>#{gameController.getcMensagem()}</h4>
+                <h2>#{gameController.secretNumber}</h2>
+            </div>
+
+            <h:form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Numero</label>
+                    <h:inputText class="form-control" value="#{gameController.numberChoise}"></h:inputText>
+                    <h:commandButton class="active" value="jogar" action="#{gameController.validaNumero()}" ></h:commandButton>
+                    <h:commandButton class="active" value="reiniciar" action="#{gameController.reiniciar()}" ></h:commandButton>
+                    <h:commandButton class="active" value="iniciar" action="#{gameController.iniciar()}" ></h:commandButton>
+                </div>
+            </h:form>
+            <footer class="footer">
+                <p>&copy; 2016 Company, Inc.</p>
+            </footer>
+        </div>
+    </h:body>
+
+</html>
+
