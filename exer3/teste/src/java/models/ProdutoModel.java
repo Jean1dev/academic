@@ -5,8 +5,11 @@
  */
 package models;
 
+import ManagedBeans.ProdutoMB;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -23,8 +26,28 @@ public class ProdutoModel {
     private double preco;
     private int estoque;
     private String categoria;
-    private List<ProdutoModel> listaProdutos;
+    private int qtdList;
+    private ProdutoMB ctrl = new ProdutoMB();
+/*    
+    public void insertToListTeste(){
+        ProdutoModel p = new ProdutoModel();
+        p = this.getObjc();
+        this.listaProdutos.add(p);
+    }
 
+    protected void insert2list(){
+        this.listaProdutos.add(this);
+    }
+    
+    protected void remove2list(int index){
+        this.listaProdutos.remove(index);
+    }
+    
+    protected void liberaObjetos(){
+        this.listaProdutos = new ArrayList<>();
+        
+    }
+    
     public List<ProdutoModel> getListaProdutos() {
         return listaProdutos;
     }
@@ -33,9 +56,28 @@ public class ProdutoModel {
         this.listaProdutos = listaProdutos;
     }
     
+    public void getListCount(){
+        this.qtdList = this.listaProdutos.size();
+        System.out.println("quantidade " + this.qtdList);
+    }
+*/
+    
     public ProdutoModel() {
     }
+    
+    public ProdutoModel getObjc(){
+        return this;
+    }
 
+    @PostConstruct
+    public void iniciaObj(){
+        this.codigo = 2;
+        this.descricao = "teste";
+        this.estoque = 5;
+        this.categoria = "teste";
+        this.vaiporra();
+    }
+    
     public ProdutoModel(int codigo, String descricao, double preco, int estoque, String categoria) {
         this.codigo = codigo;
         this.descricao = descricao;
@@ -124,5 +166,27 @@ public class ProdutoModel {
         }
         return true;
     }
+    
+    public void inserir(){
+        this.ctrl.setModelToObj(this);
+        this.ctrl.inserir();
+    }
+    
+    
+    //======================================================
+    private List<String> testelist = new ArrayList<>();
+
+    public void vaiporra(){
+        testelist.add(descricao);
+        testelist.add(descricao);
+        testelist.add(descricao);
+        testelist.add(descricao);
+        testelist.add(descricao);
+    }
+
+    public List<String> getTestelist() {
+        return testelist;
+    }
+    
     
 }

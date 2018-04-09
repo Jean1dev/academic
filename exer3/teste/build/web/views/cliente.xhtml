@@ -42,19 +42,22 @@ and open the template in the editor.
                         <f:selectItem itemLabel="santa catarina"></f:selectItem>
                         <f:selectItem itemLabel="sao paulo"></f:selectItem>
                     </h:selectOneListbox>
+
                 </h:form>
+
+
             </f:view>
         </div>
     </body>
 
     <script type="javascript">
         function somenteNumeros(num) {
-            var er = /[^0-9.]/;
-            er.lastIndex = 0;
-            var campo = num;
-             if (er.test(campo.value)) {
-                campo.value = "";
-            }
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {
+        campo.value = "";
+        }
         }
     </script>
 </html>

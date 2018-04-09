@@ -13,7 +13,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="../style/css/bootstrap.min.css" rel="stylesheet" media="screen" />
         <link href="../style/css/style.css" rel="stylesheet"/>
-        
+
         <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> 
         <script type="text/javascript" src="../style/js/bootstrap.min.js"></script>
     </head>
@@ -39,11 +39,14 @@ and open the template in the editor.
                     <h:inputText class="form-control" value="#{produtoModel.categoria}"></h:inputText>
                     <br/>
                     <h:commandButton action="#{produtoMB.novo()}" value="novo"></h:commandButton>
-                    <h:commandButton action="#{produtoMB.inserir()}" value="inserir"></h:commandButton>
+                    <h:commandButton action="#{produtoModel.inserir()}" value="inserir"></h:commandButton>
                     <h:commandButton action="#{produtoMB.remover()}" value="remover"></h:commandButton>
+                    <h:commandButton action="#{produtoMB.Testar()}" value="TESTES"></h:commandButton>
+                    <h:commandButton action="#{produtoMB.insertToListTeste()}" value="teste insercao"></h:commandButton>
+
                 </div>
-                
-                <h:dataTable id="tabelaBasico" value="#{produtoModel.listaProdutos}" var="i">
+
+                <h:dataTable id="tabelaBasico" value="#{produtoMB.listaProdutos}" var="i">
                     <h:column>
                         <f:facet name="header"> Nome </f:facet>
                             #{i.descricao}
@@ -61,6 +64,8 @@ and open the template in the editor.
                             #{i.preco}
                     </h:column>
                 </h:dataTable>
+
+            
             </h:form>
         </f:view>
     </body>
