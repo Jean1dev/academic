@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Cadastro usuario sem estilo
+    </h:body> <h:form>
+        <h:messages globalOnly="true" />
+
+        <div>
+            Código: <h:inputText id="codigo" value="#{usuarioController.model.codigo}" />
+            <h:message for="codigo" />
+        </div>
+        <div>
+            nome: <h:inputText value="#{usuarioController.model.nome}" />
+        </div>
+        <div>
+            senha: <h:inputText value="#{usuarioController.model.senha}" />
+        </div>
+        <div>
+            email: <h:inputText value="#{usuarioController.model.email}" />
+        </div>
+        <div>
+            <h:commandButton value="Salvar" 
+                             action="#{usuarioController.inserir()}" />
+            <h:commandButton value="Excluir" 
+                             action="#{usuarioController.remover()}" />
+            <h:commandButton value="Novo" 
+                             action="#{usuarioController.novo()}" />
+        </div>
+        <h:selectOneMenu value="#{usuarioController.regiao.nome}" id="estado" valueChangeListener="#{usuarioController.nada()}"  
+                         onchange="submit();">
+            
+        </h:selectOneMenu>
+        <h:dataTable value="#{usuarioController.list}"
+                     var="user">
+            <h:column>
+            </h:column>
+            <h:column>
+                #{user.codigo}
+            </h:column>
+            <h:column>
+                #{user.nome}
+            </h:column>
+            <h:column>
+                #{user.senha}
+            </h:column>
+            <h:column>
+                #{user.email}
+            </h:column>
+            <h:column>
+                <h:commandLink action="#{usuarioController.setModel(user)}">
+                    Editar
+                </h:commandLink>
+                <h:commandLink action="#{usuarioController.remover()}">
+                    Excluir
+                </h:commandLink>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</html>
+
