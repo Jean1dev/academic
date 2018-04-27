@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+    </h:body>
+    <h:form>
+        <h1>DADOS CLIENTE</h1>
+        <div>
+            Cliente:  <h:inputText value="#{pedidoMB.pedido.cliente}"  />
+
+        </div>
+        <div>
+            Endereco:  <h:inputText  value="#{pedidoMB.pedido.endereco}"  />
+
+        </div>
+        <h1>DADOS DO ITEM</h1>
+        <div>
+            Quantidade  <h:inputText value="#{pedidoMB.pedido.item.quantidade}"  />
+
+        </div>
+        <div>
+            Produto  <h:inputText  value="#{pedidoMB.pedido.item.nome}"  />
+
+        </div>
+        <div>
+            Preco  <h:inputText value="#{pedidoMB.pedido.item.preco}"  />
+
+        </div>
+        <div>
+            <h:commandButton value="Salvar" 
+                             action="#{pedidoMB.inserirItem(pedidoMB.pedido.item)}" />
+            <h:commandButton value="Excluir" 
+                             />
+            <h:commandButton value="Novo" 
+                             />
+        </div>
+        <h1>ITENS DO PEDIDO</h1>
+        <h:dataTable value="#{pedidoMB.pedido.itens}" var="item" border="1" >
+
+            <h:column>
+                #{item.nome}
+            </h:column>
+            <h:column>
+                #{item.preco}
+            </h:column>
+            <h:column>
+                #{item.quantidade}
+            </h:column>
+        </h:dataTable>
+        <h1>total do pedido #{pedidoMB.total}</h1>
+         <div>
+            <h:commandButton value="Salvar" 
+                             action="#{pedidoMB.inserir()}" />
+            <h:commandButton value="Excluir" 
+                             />
+            <h:commandButton value="Novo" 
+                             />
+        </div>
+        <h:dataTable value="#{pedidoMB.list}" var="pedido" border="1">
+              <h:column>
+                #{pedido.cliente}
+            </h:column>
+              <h:column>
+                #{pedido.endereco}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</html>
+
