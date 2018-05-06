@@ -33,8 +33,21 @@ public class PedidoMB {
         this.pedido.setItem2list(p);
     }
     
+    public void removerItem(ItemProduto p){
+        this.pedido.removeItem2list(p);
+    }
+    
+    public void novoItem(){
+        this.pedido.novoItem();
+    }
+    
     public void inserir(){
         this.list.add(this.pedido);
+        this.novo();
+    }
+    
+    public void novo(){
+        this.init();
     }
     
     public void remover(){
@@ -60,6 +73,10 @@ public class PedidoMB {
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
+    }
+    
+    public void setItemPedido(ItemProduto p){
+        this.pedido.setItem(p);
     }
 
     public List<Pedido> getList() {

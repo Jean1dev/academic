@@ -35,9 +35,9 @@
             <h:commandButton value="Salvar" 
                              action="#{pedidoMB.inserirItem(pedidoMB.pedido.item)}" />
             <h:commandButton value="Excluir" 
-                             />
+                             action="#{pedidoMB.removerItem(pedidoMB.pedido.item)}"/>
             <h:commandButton value="Novo" 
-                             />
+                             action="#{pedidoMB.novoItem()}"/>
         </div>
         <h1>ITENS DO PEDIDO</h1>
         <h:dataTable value="#{pedidoMB.pedido.itens}" var="item" border="1" >
@@ -51,22 +51,39 @@
             <h:column>
                 #{item.quantidade}
             </h:column>
+            
+            <h:column>
+                <h:commandLink action="#{pedidoMB.setItemPedido(item)}">
+                    Editar
+                </h:commandLink>
+                <h:commandLink action="#{pedidoMB.removerItem(item)}">
+                    Excluir
+                </h:commandLink>
+            </h:column>
         </h:dataTable>
         <h1>total do pedido #{pedidoMB.total}</h1>
-         <div>
+        <div>
             <h:commandButton value="Salvar" 
                              action="#{pedidoMB.inserir()}" />
             <h:commandButton value="Excluir" 
-                             />
+                             action="#{pedidoMB.remover()}"/>
             <h:commandButton value="Novo" 
-                             />
+                             action="#{pedidoMB.novo()}"/>
         </div>
         <h:dataTable value="#{pedidoMB.list}" var="pedido" border="1">
-              <h:column>
+            <h:column>
                 #{pedido.cliente}
             </h:column>
-              <h:column>
+            <h:column>
                 #{pedido.endereco}
+            </h:column>
+            <h:column>
+                <h:commandLink action="#{pedidoMB.setPedido(pedido)}">
+                    Editar
+                </h:commandLink>
+                <h:commandLink action="#{pedidoMB.remover()}">
+                    Excluir
+                </h:commandLink>
             </h:column>
         </h:dataTable>
     </h:form>

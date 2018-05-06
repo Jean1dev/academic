@@ -53,16 +53,21 @@ public class Pedido {
     
     public void setItem2list(ItemProduto item){
         this.itens.add(item);
+        this.novoItem();
     }
     
     public void removeItem2list(ItemProduto item){
         this.itens.remove(item);
     }
     
+    public void novoItem(){
+        this.item = new ItemProduto();
+    }
+    
     public Double getTotalItens(){
         double ret = 0;
         for (ItemProduto item : itens) {
-            ret = ret + item.getPreco();
+            ret = ret + (item.getPreco() * item.getQuantidade());
         }
         
         return ret;
