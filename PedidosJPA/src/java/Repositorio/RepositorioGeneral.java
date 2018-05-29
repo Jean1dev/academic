@@ -14,24 +14,23 @@ import javax.persistence.*;
  */
 public class RepositorioGeneral {
 
+    EntityManager Entity = JPA.getEM();
+    
     public void salvar() {
-        EntityManager em = JPA.getEM();
-        EntityTransaction t = em.getTransaction();
+        EntityTransaction t = Entity.getTransaction();
         t.begin();
-        em.merge(this);
+        Entity.merge(this);
         t.commit();
     }
 
     public void excluir() {
-        EntityManager em = JPA.getEM();
-        EntityTransaction t = em.getTransaction();
+        EntityTransaction t = Entity.getTransaction();
         t.begin();
-        em.remove(this);
+        Entity.remove(this);
         t.commit();
     }
     
     public void selecionarRegistro(Integer codigo){
-          EntityManager em = JPA.getEM();
-          em.find(this.getClass(), codigo);
+          Entity.find(this.getClass(), codigo);
     }
 }
